@@ -46,6 +46,7 @@ public class Jovem {
     //N..1 com endereço
     @ManyToOne
     @JoinColumn(name = "idEndereco", nullable = false)
+
     @NonNull
     private Endereco endereco;
 
