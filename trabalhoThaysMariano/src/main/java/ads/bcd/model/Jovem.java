@@ -32,8 +32,8 @@ public class Jovem {
     @NonNull
     private String tipoSanguineo;
 
-    @NonNull
-    private String alergia;
+//    @NonNull
+//    private String alergia;
 
     @NonNull
     private String email;
@@ -63,6 +63,21 @@ public class Jovem {
     @Autowired
     private List<Responsavel> responsaveis = new ArrayList<>();
 
+    //N..N Jovem Alergia
+    @ManyToMany
+    @JoinTable(name = "jovemAlergia",
+            joinColumns = {
+                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "idAlergia", referencedColumnName = "idAlergia", nullable = false)
+            }
+    )
+
+    @Autowired
+    private List<Alergia> alergias = new ArrayList<>();
+
+
 
 
 
@@ -80,18 +95,18 @@ public class Jovem {
     *
     */
 
-    //N..N Jovem atividade
-    @ManyToMany
-    @JoinTable(name = "Participacao",
-            joinColumns = {
-                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "idAtividade", referencedColumnName = "idAtividade", nullable = false)
-            }
-    )
-
-    @Autowired
-    private List<Atividade> atividades = new ArrayList<>();
+//    //N..N Jovem atividade
+//    @ManyToMany
+//    @JoinTable(name = "Participacao",
+//            joinColumns = {
+//                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "idAtividade", referencedColumnName = "idAtividade", nullable = false)
+//            }
+//    )
+//
+//    @Autowired
+//    private List<Atividade> atividades = new ArrayList<>();
 
 }

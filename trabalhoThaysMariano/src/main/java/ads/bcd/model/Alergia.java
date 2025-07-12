@@ -13,25 +13,25 @@ import java.util.Set;
 @EqualsAndHashCode
 @RequiredArgsConstructor
 @Entity
-public class Atividade {
+public class Alergia {
 
-    //Atributos
+    //atributos
     @Id
     @NonNull
-    private Integer idAtividade;
+    private Integer idAlergia;
 
     @NonNull
     private String nome;
 
-    //Construtor
-    protected Atividade(){}
+    //construtor
+    protected Alergia(){}
 
-    //Relações CONFERIR
-    @ManyToMany(mappedBy = "Jovem")
+    //é n para n Jovem Alergia.
+    // alergia 1----- 1..n JovemAlergia 1..n ------ 1 Jovem
+    // jovem alergia é so os ids
+
+    @ManyToMany(mappedBy = "Alergia")
     private Set<Jovem> jovens = new HashSet<>();
-
-
-
 
 
 
