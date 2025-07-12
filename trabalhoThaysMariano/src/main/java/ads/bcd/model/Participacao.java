@@ -1,11 +1,10 @@
 package ads.bcd.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,13 +13,13 @@ import lombok.*;
 @Entity
 public class Participacao {
 
-    //USA ESSA TABELA? - N PRA N COM MAIS COLUNAS
-
     //Atributos
-
-    @Id
+    @EmbeddedId
     @NonNull
-    private Integer idParticipacao;
+    private ParticipacaoId idParticipacao;
+
+    @NonNull
+    private Date data;
 
     //Construtor
     protected Participacao(){}
