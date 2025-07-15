@@ -1,7 +1,6 @@
 package ads.bcd.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -19,6 +18,15 @@ public class RequisitoProgressao {
     private String descricao;
 
     protected RequisitoProgressao(){};
+
+    // N .. 1 com progressao
+    @ManyToOne
+    @JoinColumn(name = "idProgressao", nullable = false);
+
+    // 1 .. N com requisito Cumprido
+    @OneToMany(mappedBy = "RequisitoProgresso")
+    private Set<RequisitoCumpridoProgressao> reqCumpridos = new HashSet<>();
+
 
 
 

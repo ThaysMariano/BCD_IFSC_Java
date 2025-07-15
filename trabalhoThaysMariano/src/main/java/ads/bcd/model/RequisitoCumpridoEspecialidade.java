@@ -1,8 +1,7 @@
 package ads.bcd.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -18,4 +17,17 @@ public class RequisitoCumpridoEspecialidade {
 
     @NonNull
     private Date data;
+
+    protected RequisitoCumpridoEspecialidade(){}
+
+    //N..1 com requisito
+    @ManyToOne
+    @JoinColumn(name = "idRequisitoEspecialidade", nullable = false)
+
+    //N..1 com Jovem
+    @ManyToOne
+    @JoinColumn(name = "idJovem", nullable = false)
+
+
+
 }

@@ -1,10 +1,7 @@
 package ads.bcd.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -28,8 +25,15 @@ public class RequisitoEspecialidade {
 
 
     //relacoes
+
+    //N..1 com especialidade
     @ManyToOne
     @JoinColumn(name = "idEspecialidade", nullable = false)
+
+    // 1..N com requisitosCumpridos
+    @OneToMany(mappedBy = "RequisitoEspecialidade")
+    private Set<RequisitoCumpridoEspecialidade> reqCumpridos = new HashSet<>();
+
 
 
 }

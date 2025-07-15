@@ -11,23 +11,21 @@ import lombok.*;
 @EqualsAndHashCode
 @RequiredArgsConstructor
 @Entity
-public class RequisitoCumpridoProgressao {
+public class ProgressoDaProgressao {
+
     @Id
     @NonNull
-    private RequisitoCumpridoProgressaoId idRequisitoCumpridoProgressao;
+    private ProgressoDaProgressaoId idProgressao;
 
     @NonNull
     private Date data;
 
-    protected RequisitoCumpridoProgressao(){}
-
-    // N .. 1  com RequisitoProgresso
+    // N .. 1 com Progressao
     @ManyToOne
-    @JoinColumn(name = "idRequisitoProgressao", nullable = false);
+    @JoinColumn(name = "idProgressao", nullable = false);
 
     // N .. 1 com Jovem
     @ManyToOne
     @JoinColumn(name = "idJovem", nullable = false);
-
 
 }
