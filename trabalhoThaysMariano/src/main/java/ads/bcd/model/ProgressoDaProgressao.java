@@ -22,10 +22,12 @@ public class ProgressoDaProgressao {
 
     // N .. 1 com Progressao
     @ManyToOne
-    @JoinColumn(name = "idProgressao", nullable = false);
+    @JoinColumn(name = "idProgressao", nullable = false)
+    private Progressao progressao;
 
     // N .. 1 com Jovem
     @ManyToOne
-    @JoinColumn(name = "idJovem", nullable = false);
+    @JoinColumn(name = "idJovem", nullable = false)
+    private Jovem jovem;
 
 }

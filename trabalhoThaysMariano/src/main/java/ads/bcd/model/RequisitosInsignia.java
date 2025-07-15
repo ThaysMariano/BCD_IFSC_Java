@@ -20,6 +20,7 @@ public class RequisitosInsignia {
     // N .. 1 Insignia
     @ManyToOne
     @JoinColumn(name = "idInsignia", nullable = false)
+    private Insignia insignia;
 
     // 1.. N req Cumprido
     @OneToMany(mappedBy = "RequisitosInsignia")

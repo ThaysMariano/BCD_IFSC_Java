@@ -24,13 +24,14 @@ public class Participacao {
     //Construtor
     protected Participacao(){}
 
-    //Relacoes CONFERIR
 
+    // N .. 1 com Atividade
     @ManyToOne
     @JoinColumn(name = "idAtividade", nullable = false)
     @NonNull
     private Atividade atividade;
 
+    // N .. 1 com Jovem
     @ManyToOne
     @JoinColumn(name = "idJovem", nullable = false)
     @NonNull

@@ -21,7 +21,8 @@ public class RequisitoProgressao {
 
     // N .. 1 com progressao
     @ManyToOne
-    @JoinColumn(name = "idProgressao", nullable = false);
+    @JoinColumn(name = "idProgressao", nullable = false)
+    private Progressao progressao;
 
     // 1 .. N com requisito Cumprido
     @OneToMany(mappedBy = "RequisitoProgresso")

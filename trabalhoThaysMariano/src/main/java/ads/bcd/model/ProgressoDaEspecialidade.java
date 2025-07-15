@@ -25,11 +25,13 @@ public class ProgressoDaEspecialidade {
 
     // N.. 1 com Jovem
     @ManyToOne
-    @JoinColumn(name = "idJovem", nullable = false);
+    @JoinColumn(name = "idJovem", nullable = false)
+    private Jovem jovem;
 
     // N.. 1 com especialidade
     @ManyToOne
-    @JoinColumn(name = "idEspecialidade", nullable = false);
+    @JoinColumn(name = "idEspecialidade", nullable = false)
+    private Especialidade especialidade;
 
 
 

@@ -29,6 +29,7 @@ public class RequisitoEspecialidade {
     //N..1 com especialidade
     @ManyToOne
     @JoinColumn(name = "idEspecialidade", nullable = false)
+    private Especialidade especiadiade;
 
     // 1..N com requisitosCumpridos
     @OneToMany(mappedBy = "RequisitoEspecialidade")

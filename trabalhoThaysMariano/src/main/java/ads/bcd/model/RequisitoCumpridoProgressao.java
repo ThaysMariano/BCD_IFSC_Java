@@ -23,11 +23,13 @@ public class RequisitoCumpridoProgressao {
 
     // N .. 1  com RequisitoProgresso
     @ManyToOne
-    @JoinColumn(name = "idRequisitoProgressao", nullable = false);
+    @JoinColumn(name = "idRequisitoProgressao", nullable = false)
+    private RequisitoProgressao reqProgressao;
 
     // N .. 1 com Jovem
     @ManyToOne
-    @JoinColumn(name = "idJovem", nullable = false);
+    @JoinColumn(name = "idJovem", nullable = false)
+    private Jovem jovem;
 
 
 }

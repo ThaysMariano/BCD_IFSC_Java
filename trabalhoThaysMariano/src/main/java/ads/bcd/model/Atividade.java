@@ -3,6 +3,7 @@ package ads.bcd.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.util.HashSet;
@@ -26,14 +27,9 @@ public class Atividade {
     //Construtor
     protected Atividade(){}
 
-    //Relações CONFERIR
-    @ManyToMany(mappedBy = "Jovem")
-    private Set<Jovem> jovens = new HashSet<>();
-
-
-
-
-
+    // 1 .. N com participacao
+    @OneToMany(mappedBy = "Atividade")
+    private Set<Participacao> participacoes = new HashSet<>();
 
 
 }

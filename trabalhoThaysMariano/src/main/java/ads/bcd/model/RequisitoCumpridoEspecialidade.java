@@ -23,10 +23,12 @@ public class RequisitoCumpridoEspecialidade {
     //N..1 com requisito
     @ManyToOne
     @JoinColumn(name = "idRequisitoEspecialidade", nullable = false)
+    private RequisitoEspecialidade reqEspecialidade;
 
     //N..1 com Jovem
     @ManyToOne
     @JoinColumn(name = "idJovem", nullable = false)
+    private Jovem jovem;
 
 
 
