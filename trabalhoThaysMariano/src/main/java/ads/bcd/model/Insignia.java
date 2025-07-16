@@ -8,6 +8,9 @@ import jakarta.persistence.OneToMany;
 import lombok.*;
 import org.hibernate.boot.model.relational.InitCommand;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode

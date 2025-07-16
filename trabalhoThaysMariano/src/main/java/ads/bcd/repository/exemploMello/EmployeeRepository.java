@@ -1,4 +1,4 @@
-package ads.bcd.repository;
+package ads.bcd.repository.exemploMello;
 
 
 import java.util.List;

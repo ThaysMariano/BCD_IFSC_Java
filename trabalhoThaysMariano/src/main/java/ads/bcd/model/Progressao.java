@@ -5,6 +5,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -28,9 +31,6 @@ public class Progressao {
     @OneToMany(mappedBy = "Progresao")
     private Set<RequisitoProgressao> requisitos = new HashSet<>();
 
-    // 1 .. N progresso
-    @OneToMany(mappedBy = "Progresao")
-    private Set<ProgressoDaProgressao> progressos = new HashSet<>();
 
 
 

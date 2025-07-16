@@ -32,17 +32,14 @@ public class Especialidade {
     protected Especialidade(){}
 
     //relacoes
+
+    // 1..N com requistos
     @OneToMany(mappedBy = "Especialidade")
     private Set<RequisitoEspecialidade> requisitos = new HashSet<>();
 
 
-    // 1..N com requisitos
-    @OneToMany(mappedBy = "Especialidade")
-    private Set<RequisitoEspecialidade> requisitos = new HashSet<>();
 
-    // 1..N com progresso
-    @OneToMany(mappedBy = "Especialidade")
-    private Set<ProgressoDaEspecialidade> progressos = new HashSet<>();
+
 
 
 }

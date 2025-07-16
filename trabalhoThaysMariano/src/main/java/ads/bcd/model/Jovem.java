@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -39,7 +39,8 @@ public class Jovem {
     private String email;
 
     //Construtor
-    protected Jovem(){}
+    protected Jovem() {
+    }
 
     //Relacoes
 
@@ -54,13 +55,12 @@ public class Jovem {
     @ManyToMany
     @JoinTable(name = "jovemResponsavel",
             joinColumns = {
-            @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-    },
+                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+            },
             inverseJoinColumns = {
                     @JoinColumn(name = "idResponsavel", referencedColumnName = "idResponsavel", nullable = false)
             }
     )
-
     @Autowired
     private List<Responsavel> responsaveis = new ArrayList<>();
 
@@ -74,54 +74,12 @@ public class Jovem {
                     @JoinColumn(name = "idAlergia", referencedColumnName = "idAlergia", nullable = false)
             }
     )
-
     @Autowired
     private List<Alergia> alergias = new ArrayList<>();
 
-    //N..N Jovem Insignia
-    @ManyToMany
-    @JoinTable(name = "ProgressoDaInsignia",
-            joinColumns = {
-                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "idInsignia", referencedColumnName = "idInsignia", nullable = false)
-            }
-    )
-
-    @Autowired
-    private List<Insignia> insignias = new ArrayList<>();
-
-
-
-
-
-
-
-// VER COMO FAZER MANY TO MANY EM CASO DE MAIS COLUNAS ALEM DAS CHAVES
-
-
-     /* Se na tabela do relacionamento muitos-para-muitos tiver colunas além das duas
-     * que fazem parte da chave, então precisará seguir outra abordagem e criar uma
-     * entidade dedicada para isso. Usará as anotações OneToMany, ManyToOne,
-     * Embeddable e EmbeddedId. Veja exemplo em:
-    *
-    * https://docs.jboss.org/hibernate/annotations/3.5/reference/en/html/entity.html#entity-mapping-association
-    *
-    */
-
-//    //N..N Jovem atividade
-//    @ManyToMany
-//    @JoinTable(name = "Participacao",
-//            joinColumns = {
-//                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-//            },
-//            inverseJoinColumns = {
-//                    @JoinColumn(name = "idAtividade", referencedColumnName = "idAtividade", nullable = false)
-//            }
-//    )
-//
-//    @Autowired
-//    private List<Atividade> atividades = new ArrayList<>();
 
 }
+
+
+
+

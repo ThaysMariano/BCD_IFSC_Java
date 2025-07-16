@@ -4,6 +4,8 @@ package ads.bcd.model;
 import jakarta.persistence.Embeddable;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -11,7 +13,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @Embeddable
-public class RequisitoCumpridoProgressaoId {
+public class RequisitoCumpridoProgressaoId implements Serializable {
 
     private Integer idJovem;
     private Integer idRequisitoProgressao;

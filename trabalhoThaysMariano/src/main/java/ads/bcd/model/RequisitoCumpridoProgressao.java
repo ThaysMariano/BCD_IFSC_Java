@@ -6,6 +6,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @EqualsAndHashCode

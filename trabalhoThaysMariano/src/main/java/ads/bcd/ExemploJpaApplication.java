@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Bean;
 
 import ads.bcd.exemplosMello.Employee;
 import ads.bcd.exemplosMello.JobHistory;
-import ads.bcd.repository.CourseRepository;
-import ads.bcd.repository.DepartmentRepository;
-import ads.bcd.repository.EmployeeRepository;
+import ads.bcd.repository.exemploMello.CourseRepository;
+import ads.bcd.repository.exemploMello.DepartmentRepository;
+import ads.bcd.repository.exemploMello.EmployeeRepository;
 
 /**
  * A anotação abaixo é para indicar que essa é uma aplicação SpringBoot

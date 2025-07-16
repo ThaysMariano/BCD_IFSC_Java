@@ -45,6 +45,9 @@ public class Endereco {
     @OneToMany(mappedBy = "Endereco")
     private Set<Jovem> jovens = new HashSet<>();
 
+    // 1 .. N com Responsavel
+    @OneToMany(mappedBy = "Endereco")
+    private Set<Responsavel> responsaveis = new HashSet<>();
 
 
 

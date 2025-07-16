@@ -38,6 +38,7 @@ public class Responsavel {
     @NonNull
     private Endereco endereco;
 
+    // N .. N para jovem
     @ManyToMany(mappedBy = "Responsavel")
     private Set<Jovem> jovens = new HashSet<>();
 
