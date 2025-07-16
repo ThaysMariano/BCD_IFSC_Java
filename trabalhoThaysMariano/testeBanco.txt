@@ -1,0 +1,195 @@
+drop table if exists JovemAlergia;
+drop table if exists JovemResponsavel;
+drop table if exists RequisitoCumpridoEspecialidade;
+drop table if exists RequisitoCumpridoInsignia;
+drop table if exists RequisitoCumpridoProgressao;
+drop table if exists Participacao;
+drop table if exists Jovem;
+drop table if exists Responsavel;
+drop table if exists RequisitoEspecialidade;
+drop table if exists RequisitoProgressao;
+drop table if exists RequisitoInsignia;
+drop table if exists Especialidade;
+drop table if exists Insignia;
+drop table if exists Progressao;
+drop table if exists Atividade;
+drop table if exists AreaDeConhecimento;
+drop table if exists Endereco;
+drop table if exists Alergia;
+
+FAZER CASES
+
+create table Alergia(
+                       idAlergia integer primary key auto_increment,
+                       nome varchar(40)                    
+) ENGINE=InnoDB;
+
+
+create table AreaDeConhecimento(
+                           idAreaConhecimento integer primary key auto_increment,
+                           nome varchar(40)
+)ENGINE=InnoDB;
+
+create table Atividade(
+                           idAtividade integer primary key auto_increment,
+                           nome varchar(40)
+)ENGINE=InnoDB;
+
+create table Endereco(
+                           idEndereco integer primary key auto_increment,
+                           rua varchar(40),
+			   numero integer, 
+			   cep varchar(20),
+			   cidade varchar(30),
+			   estado varchar(30)
+)ENGINE=InnoDB;
+
+create table Especialidade(
+                           idEspecialidade integer primary key,
+                           nome varchar(60),
+			   numRequisitos integer,
+			   idAreaConhecimento integer,
+		           constraint foreign key (iAreaConhecimento) references AreaDeConhecimento (idAreaConhecimento)
+
+)ENGINE=InnoDB;
+
+create table Insignia(
+                           idInsignia integer primary key,
+                           nome varchar(60),
+			   numRequisitos integer
+)ENGINE=InnoDB;
+
+create table Jovem(
+                           idJovem integer primary key,
+                           nome varchar(60),
+			   dataNascimento date,
+			   telefone varchar(20),
+			   tipoSanguineo varchar(3),
+			   email varchar(60),
+			   idEndereco integer,
+		           constraint foreign key (idEndereco) references Endereco (idEndereco),
+
+)ENGINE=InnoDB;
+
+create table Participacao(
+                           idJovem integer,
+			   idAtividade integer,
+			   primary key (idJovem, idAtividade),
+			   data date,
+			   constraint foreign key (idJovem) references Jovem (idJovem),
+			   constraint foreign key (idAtividade) references Atividade (idAtividade)
+        
+)ENGINE=InnoDB;
+
+create table Progressao(
+                           idProgressao integer primary key,
+                           nome varchar(60),
+			   numRequisitos integer
+)ENGINE=InnoDB;
+
+create table RequisitoCumpridoEspecialidade(
+				
+                           idJovem integer,
+			   idRequisitoEspecialidade integer,
+			   primary key (idJovem, idRequisitoEspecialidade)
+			   data date,
+			   constraint foreign key (idJovem) references Jovem (idJovem),
+			   constraint foreign key (idRequisitoEspecialidade) references RequisitoEspecialidade(idRequisitoEspecialidade)
+        
+)ENGINE=InnoDB;
+
+
+create table RequisitoCumpridoInsignia(
+				
+                           idJovem integer,
+			   idRequisitoInsignia integer,
+			   primary key (idJovem, idRequisitoInsignia),
+			   data date,
+			   constraint foreign key (idJovem) references Jovem (idJovem),
+			   constraint foreign key (idRequisitoInsignia) references RequisitoInsignia (idRequisitoInsignia)
+        
+)ENGINE=InnoDB;
+
+create table RequisitoCumpridoProgressao(
+				
+                           idJovem integer,
+			   idRequisitoProgressao integer,
+			   primary key (idJovem, idRequisitoProgressao)
+			   idRequisitpProgressao integer,
+			   data date,
+			   constraint foreign key (idJovem) references Jovem (idJovem),
+			   constraint foreign key (idRequisitoProgressao) references RequisitoProgressao(idRequisitoProgressao)
+        
+)ENGINE=InnoDB;
+
+
+create table RequisitoEspecialidade(
+			   idRequisitoEspecialidade integer primary key,
+			   idEspecialidade integer,
+			   descricao varchar(200),
+			   constraint foreign key (idEspecialidade) references Especialidade (idEspecialidade)
+)
+        
+)ENGINE=InnoDB;
+
+
+create table RequisitoProgressao(
+				
+			   idRequisitoProgressao integer primary key,
+			   idProgressao integer,
+			   descricao varchar(200),
+			   constraint foreign key (idProgressao) references Progressao (idProgressao)
+)
+        
+)ENGINE=InnoDB;
+
+
+create table RequisitoInsignia(
+				
+			   idRequisitoInsignia integer primary key,
+			   idInsignia integer,
+			   descricao varchar(200),
+			   constraint foreign key (idInsignia) references Insignia (idInsignia)
+)
+        
+)ENGINE=InnoDB;
+
+
+create table Responsavel(
+				
+			   idResponsavel integer primary key,
+			   nome varchar(30),
+			   telefone varchar(20),
+			   email varchar(60),
+			   idEndereco integer
+			   constraint foreign key (idEndereco) references Endereco (idEndereco)
+)
+        
+)ENGINE=InnoDB;
+
+
+
+// tabelas com duvida, precisa criar aqui mesmo n tendo a classe java delas?
+// rever tabelas requisito e requisito|Cumprido a quetao de ofreign key e primary jey, acho que confundi 
+
+create table JovemAlergia (
+   		 idJovem integer,
+   		 idAlergia integer,
+   		 primary key (idJovem, idAlergia),
+   		 constraint foreign key (idJovem) references Jovem(idJovem),
+   		 constraint foreign key (idAlergia) references Alergia(idAlergia)
+)ENGINE=InnoDB;
+
+create table JovemResponsavel (
+   		 idJovem integer,
+   		 idResponsavel integer,
+   		 primary key (idJovem, idResponsavel),
+   		 constraint foreign key (idJovem) references Jovem(idJovem),
+   		 constraint foreign key (idResponsavel) references Responsavel(idResponsavel)
+)ENGINE=InnoDB;;
+
+
+// AUTO_INCREMENT
+
+
+
