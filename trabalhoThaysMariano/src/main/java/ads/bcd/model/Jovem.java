@@ -81,44 +81,45 @@ public class Jovem {
     private List<Alergia> alergias = new ArrayList<>();
 
 //TODO ELE FAZ ESSA CONEXAO OU FICA SO NO REQ CUMPRIDO
-    //N..N Jovem Especialidade
-    @ManyToMany
-    @JoinTable(name = "JovemEspecialidade",
-            joinColumns = {
-                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "idEspecialidade", referencedColumnName = "idEspecialidade", nullable = false)
-            }
-    )
-    @Autowired
-    private List<Especialidade> especialidades = new ArrayList<>();
 
-    //N..N Jovem Progressao
-    @ManyToMany
-    @JoinTable(name = "JovemProgressao",
-            joinColumns = {
-                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "idProgressao", referencedColumnName = "idProgressao", nullable = false)
-            }
-    )
-    @Autowired
-    private List<Progressao> progressoes = new ArrayList<>();
-
-    //N..N Jovem Insignia
-    @ManyToMany
-    @JoinTable(name = "JovemInsignia",
-            joinColumns = {
-                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "idInsignia", referencedColumnName = "idInsignia", nullable = false)
-            }
-    )
-    @Autowired
-    private List<Insignia> insignias = new ArrayList<>();
+//    //N..N Jovem Especialidade
+//    @ManyToMany
+//    @JoinTable(name = "JovemEspecialidade",
+//            joinColumns = {
+//                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "idEspecialidade", referencedColumnName = "idEspecialidade", nullable = false)
+//            }
+//    )
+//    @Autowired
+//    private List<Especialidade> especialidades = new ArrayList<>();
+//
+//    //N..N Jovem Progressao
+//    @ManyToMany
+//    @JoinTable(name = "JovemProgressao",
+//            joinColumns = {
+//                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "idProgressao", referencedColumnName = "idProgressao", nullable = false)
+//            }
+//    )
+//    @Autowired
+//    private List<Progressao> progressoes = new ArrayList<>();
+//
+//    //N..N Jovem Insignia
+//    @ManyToMany
+//    @JoinTable(name = "JovemInsignia",
+//            joinColumns = {
+//                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+//            },
+//            inverseJoinColumns = {
+//                    @JoinColumn(name = "idInsignia", referencedColumnName = "idInsignia", nullable = false)
+//            }
+//    )
+//    @Autowired
+//    private List<Insignia> insignias = new ArrayList<>();
 
 
 }

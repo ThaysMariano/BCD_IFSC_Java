@@ -20,13 +20,13 @@ public class Insignia {
 
     @Id
     @NonNull
-    private Integer insigniaId;
+    private Integer idInsignia;
 
     @NonNull
     private String nome;
 
     @NonNull
-    private Integer quantidadeRequisitos;
+    private Integer numRequisitos;
 
     protected Insignia(){};
 
