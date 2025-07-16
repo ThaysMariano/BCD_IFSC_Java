@@ -18,7 +18,8 @@ public interface JovemRepository extends CrudRepository<Employee, Integer> {
 
     //Deixar aqui apenas jovem, o que for join colocar na aplicacao
     //Jovens que possuem uma determinada especialidade;
-    @Query("SELECT '*' FROM Jovem J JOIN Especialidade E WHERE idJovem=idJovem")
+    @Query("SELECT '*' FROM Jovem J JOIN Especialidade E ON J.idJovem=E.idJovem WHERE E.nome = : nome")
+    List<Jovem> listarJovensPorEspecialidade(@Param("nome") String nome);
 
 
 

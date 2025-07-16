@@ -78,6 +78,20 @@ public class Jovem {
     private List<Alergia> alergias = new ArrayList<>();
 
 
+    //N..N Jovem Especialidade
+    @ManyToMany
+    @JoinTable(name = "JovemEspecialidade",
+            joinColumns = {
+                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "idEspecialidade", referencedColumnName = "idEspecialidade", nullable = false)
+            }
+    )
+    @Autowired
+    private List<Especialidade> especialidades = new ArrayList<>();
+
+
 }
 
 

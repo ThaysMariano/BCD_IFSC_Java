@@ -1,8 +1,6 @@
 package ads.bcd.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
@@ -36,6 +34,14 @@ public class Especialidade {
     // 1..N com requistos
     @OneToMany(mappedBy = "Especialidade")
     private Set<RequisitoEspecialidade> requisitos = new HashSet<>();
+
+    // N .. N especialidade
+    @ManyToMany(mappedBy = "Especialidade")
+    private Set<Jovem> jovens = new HashSet<>();
+
+    // 1 .. 1 com Area de Conhecimento
+
+
 
 
 
