@@ -32,7 +32,7 @@ public class RequisitoCumpridoInsignia {
 
     // N .. 1 com Jovem
     @ManyToOne
-    @JoinColumn(name = "idJovem", nullable = false);
+    @JoinColumn(name = "idJovem", nullable = false)
     private Jovem jovem;
 
 }

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -32,9 +34,6 @@ public class Jovem {
     @NonNull
     private String tipoSanguineo;
 
-//    @NonNull
-//    private String alergia;
-
     @NonNull
     private String email;
 
@@ -50,6 +49,10 @@ public class Jovem {
 
     @NonNull
     private Endereco endereco;
+
+    // 1 .. N com Participacap
+    @OneToMany(mappedBy = "Participacao")
+    private Set<Participacao> participacoes = new HashSet<>();
 
     //N..N Jovem responsavel
     @ManyToMany
@@ -77,7 +80,7 @@ public class Jovem {
     @Autowired
     private List<Alergia> alergias = new ArrayList<>();
 
-
+//TODO ELE FAZ ESSA CONEXAO OU FICA SO NO REQ CUMPRIDO
     //N..N Jovem Especialidade
     @ManyToMany
     @JoinTable(name = "JovemEspecialidade",
@@ -90,6 +93,32 @@ public class Jovem {
     )
     @Autowired
     private List<Especialidade> especialidades = new ArrayList<>();
+
+    //N..N Jovem Progressao
+    @ManyToMany
+    @JoinTable(name = "JovemProgressao",
+            joinColumns = {
+                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "idProgressao", referencedColumnName = "idProgressao", nullable = false)
+            }
+    )
+    @Autowired
+    private List<Progressao> progressoes = new ArrayList<>();
+
+    //N..N Jovem Insignia
+    @ManyToMany
+    @JoinTable(name = "JovemInsignia",
+            joinColumns = {
+                    @JoinColumn(name = "idJovem", referencedColumnName = "idJovem", nullable = false)
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "idInsignia", referencedColumnName = "idInsignia", nullable = false)
+            }
+    )
+    @Autowired
+    private List<Insignia> insignias = new ArrayList<>();
 
 
 }

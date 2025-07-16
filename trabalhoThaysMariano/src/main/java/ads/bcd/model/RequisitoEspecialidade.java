@@ -26,7 +26,6 @@ public class RequisitoEspecialidade {
     protected RequisitoEspecialidade() {
     }
 
-
     //relacoes
 
     //N..1 com especialidade

@@ -32,11 +32,8 @@ public class Insignia {
 
     // 1 .. N com Requisito
     @OneToMany(mappedBy = "Insignia")
-    private Set<RequisitoEspecialidade> requisitos = new HashSet<>();
+    private Set<RequisitoEspecialidade> reqInsignia = new HashSet<>();
 
-    // N .. N com jovem
-    @ManyToMany(mappedBy = "Insignia")
-    private Set<Jovem> jovens = new HashSet<>();
 
 
 }

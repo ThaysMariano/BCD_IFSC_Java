@@ -29,7 +29,7 @@ public class Progressao {
 
     // 1.. N com requisito
     @OneToMany(mappedBy = "Progresao")
-    private Set<RequisitoProgressao> requisitos = new HashSet<>();
+    private Set<RequisitoProgressao> requisitosProgressao = new HashSet<>();
 
 
 

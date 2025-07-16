@@ -20,6 +20,8 @@ public class RequisitosInsignia {
     @NonNull
     private String descricao;
 
+    protected RequisitosInsignia(){}
+
     // N .. 1 Insignia
     @ManyToOne
     @JoinColumn(name = "idInsignia", nullable = false)
@@ -27,7 +29,7 @@ public class RequisitosInsignia {
 
     // 1.. N req Cumprido
     @OneToMany(mappedBy = "RequisitosInsignia")
-    private Set<RequisitoCumpridoInsignia> reqCumpridos = new HashSet<>();
+    private Set<RequisitoCumpridoInsignia> reqCumpridosInsignia = new HashSet<>();
 
 
 }

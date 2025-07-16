@@ -21,7 +21,6 @@ public class Especialidade {
     @NonNull
     private String nome;
 
-    //Area de conhecimento
 
     @NonNull
     private Integer numRequisitos;
@@ -33,17 +32,15 @@ public class Especialidade {
 
     // 1..N com requistos
     @OneToMany(mappedBy = "Especialidade")
-    private Set<RequisitoEspecialidade> requisitos = new HashSet<>();
+    private Set<RequisitoEspecialidade> requisitosEspecialidade = new HashSet<>();
 
-    // N .. N especialidade
+    // N .. N com jovem
     @ManyToMany(mappedBy = "Especialidade")
     private Set<Jovem> jovens = new HashSet<>();
 
-    // 1 .. 1 com Area de Conhecimento
-
-
-
-
+   // N .. 1 com areaConhecimento
+    @ManyToOne
+    @JoinColumn(name = "idAreaCohecimento", nullable = false)
 
 
 
