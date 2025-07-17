@@ -34,13 +34,10 @@ public class Especialidade {
     @OneToMany(mappedBy = "Especialidade")
     private Set<RequisitoEspecialidade> requisitosEspecialidade = new HashSet<>();
 
-    // N .. N com jovem
-    @ManyToMany(mappedBy = "Especialidade")
-    private Set<Jovem> jovens = new HashSet<>();
-
    // N .. 1 com areaConhecimento
     @ManyToOne
-    @JoinColumn(name = "idAreaCohecimento", nullable = false)
+    @JoinColumn(name = "idAreaConhecimento", nullable = false)
+    private AreaDeConhecimento areaDeConhecimento;
 
 
 

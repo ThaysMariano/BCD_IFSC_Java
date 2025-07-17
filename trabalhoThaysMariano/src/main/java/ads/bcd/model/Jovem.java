@@ -46,12 +46,11 @@ public class Jovem {
     //N..1 com endereço
     @ManyToOne
     @JoinColumn(name = "idEndereco", nullable = false)
-
     @NonNull
     private Endereco endereco;
 
     // 1 .. N com Participacap
-    @OneToMany(mappedBy = "Participacao")
+    @OneToMany(mappedBy = "Jovem")
     private Set<Participacao> participacoes = new HashSet<>();
 
     //N..N Jovem responsavel
@@ -79,6 +78,21 @@ public class Jovem {
     )
     @Autowired
     private List<Alergia> alergias = new ArrayList<>();
+
+    // 1 .. N reqCumpEspecialidade
+    @OneToMany(mappedBy = "Jovem")
+    private Set<RequisitoCumpridoEspecialidade> requisitosCumpridosEspecialidade = new HashSet<>();
+
+    // 1 .. N reqCumpProgressao
+    @OneToMany(mappedBy = "Jovem")
+    private Set<RequisitoCumpridoProgressao> requisitosCumpridosProgressao = new HashSet<>();
+
+    // 1 .. N reqCumpInsignia
+    @OneToMany(mappedBy = "Jovem")
+    private Set<RequisitoCumpridoInsignia requisitosCumpridosInsignia = new HashSet<>();
+
+
+
 
 //TODO ELE FAZ ESSA CONEXAO OU FICA SO NO REQ CUMPRIDO
 

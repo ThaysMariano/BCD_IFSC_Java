@@ -17,7 +17,7 @@ drop table if exists AreaDeConhecimento;
 drop table if exists Endereco;
 drop table if exists Alergia;
 
-FAZER CASES
+//FAZER CASES
 
 create table Alergia(
                        idAlergia integer primary key auto_increment,
@@ -45,11 +45,11 @@ create table Endereco(
 )ENGINE=InnoDB;
 
 create table Especialidade(
-                           idEspecialidade integer primary key,
+                idEspecialidade integer primary key,
                            nome varchar(60),
-			   numRequisitos integer,
-			   idAreaConhecimento integer,
-		           constraint foreign key (iAreaConhecimento) references AreaDeConhecimento (idAreaConhecimento)
+			               numRequisitos integer,
+			               idAreaConhecimento integer,
+		           constraint foreign key (idAreaConhecimento) references AreaDeConhecimento (idAreaConhecimento)
 
 )ENGINE=InnoDB;
 
@@ -60,14 +60,14 @@ create table Insignia(
 )ENGINE=InnoDB;
 
 create table Jovem(
-                           idJovem integer primary key,
+                           idJovem integer primary key auto_increment,
                            nome varchar(60),
 			   dataNascimento date,
 			   telefone varchar(20),
 			   tipoSanguineo varchar(3),
 			   email varchar(60),
 			   idEndereco integer,
-		           constraint foreign key (idEndereco) references Endereco (idEndereco),
+		           constraint foreign key (idEndereco) references Endereco (idEndereco)
 
 )ENGINE=InnoDB;
 
@@ -91,7 +91,7 @@ create table RequisitoCumpridoEspecialidade(
 				
                            idJovem integer,
 			   idRequisitoEspecialidade integer,
-			   primary key (idJovem, idRequisitoEspecialidade)
+			   primary key (idJovem, idRequisitoEspecialidade),
 			   data date,
 			   constraint foreign key (idJovem) references Jovem (idJovem),
 			   constraint foreign key (idRequisitoEspecialidade) references RequisitoEspecialidade(idRequisitoEspecialidade)
@@ -112,10 +112,9 @@ create table RequisitoCumpridoInsignia(
 
 create table RequisitoCumpridoProgressao(
 				
-                           idJovem integer,
+               idJovem integer,
 			   idRequisitoProgressao integer,
-			   primary key (idJovem, idRequisitoProgressao)
-			   idRequisitpProgressao integer,
+			   primary key (idJovem, idRequisitoProgressao),
 			   data date,
 			   constraint foreign key (idJovem) references Jovem (idJovem),
 			   constraint foreign key (idRequisitoProgressao) references RequisitoProgressao(idRequisitoProgressao)
@@ -128,8 +127,7 @@ create table RequisitoEspecialidade(
 			   idEspecialidade integer,
 			   descricao varchar(200),
 			   constraint foreign key (idEspecialidade) references Especialidade (idEspecialidade)
-)
-        
+
 )ENGINE=InnoDB;
 
 

@@ -35,7 +35,7 @@ public class RequisitoEspecialidade {
 
     // 1..N com requisitosCumpridos
     @OneToMany(mappedBy = "RequisitoEspecialidade")
-    private Set<RequisitoCumpridoEspecialidade> reqCumpridos = new HashSet<>();
+    private Set<RequisitoCumpridoEspecialidade> reqCumpridosEspecialidade = new HashSet<>();
 
 
 
