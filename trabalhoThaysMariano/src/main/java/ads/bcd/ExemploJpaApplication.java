@@ -45,11 +45,15 @@ public class ExemploJpaApplication {
 				log.info("Iniciando aplicação...");
 
 
-
+// noa tem que adicionar, apenas listar
 				int opcao = -1;
 				do {
-					System.out.println("\n--- MENU ---");
-					System.out.println("1 - Listar dados de um jovem");
+					System.out.println("\n--- MENU DE OPCOES ---");
+					System.out.println("1 - Listar dados biográficos de um jovem");
+					System.out.println("2 - Listar jovens que possuem determinada especialidade");
+					System.out.println("3 - Listar especialidades e insignias que um jovem");
+					System.out.println("4 - Listar requisitos ja cumrpidos de um jovem de uma determinada especialidade");
+					System.out.println("5 - Listar jovens que podem obter o cruzeiro sul");
 					System.out.println("0 - Sair");
 					System.out.print("Digite uma opção: ");
 
